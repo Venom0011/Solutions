@@ -5,11 +5,18 @@ public:
         for(int i=0;i<s.length();i++){
             if(s[i]=='A'){
                 ab++;
-            }else if(i+1<s.length() && i+2<s.length() && s[i]=='L' && s[i+1]=='L' && s[i+2]=='L'){
-               return false;
+                if(ab>=2) return false;
+            }
+
+            if(s[i]=='L'){
+                lt++;
+
+                if(lt>=3) return false;
+            }else{
+                lt=0;
             }
         }
 
-        return (ab<2 && lt<3);
+        return true;
     }
 };
